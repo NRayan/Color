@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-flex: 1;
+display: flex;
+background-color: red;
+background-color: ${({ theme }) => theme.colors.primary};
 `;
