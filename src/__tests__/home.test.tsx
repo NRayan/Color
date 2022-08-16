@@ -1,12 +1,13 @@
 import { render } from "@testing-library/react";
 import { Home } from "../pages";
-import { TestThemeWrapper } from "../utils";
+import { ThemeWrapper } from "../utils";
 
 it("Should render page correctly", () => {
 	render(
-		<TestThemeWrapper>
+		<ThemeWrapper>
 			<Home />
-		</TestThemeWrapper>
+		</ThemeWrapper>
 	);
+
 	expect(true).toBeTruthy();
 });
