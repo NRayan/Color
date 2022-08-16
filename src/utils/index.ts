@@ -1,1 +1,2 @@
-export { TestThemeWrapper } from "./testUtils";
+export { ThemeWrapper } from "./ThemeWrapper";
+
