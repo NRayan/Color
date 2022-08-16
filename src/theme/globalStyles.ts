@@ -10,6 +10,14 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 
+  *:focus {
+    outline: none;
+  }
+
+  html{
+    font-size: 62.5%;
+  }
+
   div{
     display: flex;
     flex-direction: column;
@@ -19,5 +27,11 @@ export const GlobalStyle = createGlobalStyle`
     height: 100vh;
     width: 100vw;
     background-color: ${({ theme }) => theme.colors.background};
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
   }
 `
