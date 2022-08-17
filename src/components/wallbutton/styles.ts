@@ -2,9 +2,9 @@ import { transparentize } from "polished";
 import styled from "styled-components";
 import { props } from ".";
 
-export const Container = styled.button<props>`
+export const Container = styled.button<props & { hasError: boolean }>`
     background-color: ${({ selected, theme: { colors } }) => selected ? colors.background : colors.backgroundSecondary};
-    color: ${({ selected, theme: { colors } }) => transparentize(selected ? 0 : .4, colors.text)};
+    color: ${({ selected, theme: { colors }, hasError }) => hasError ? "red" : transparentize(selected ? 0 : .4, colors.text)};
     font-weight: ${({ selected }) => selected ? 600 : 500};
     padding: 2rem 0rem;
     display: flex;
