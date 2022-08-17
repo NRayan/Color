@@ -1,8 +1,10 @@
 import { Container } from "./styles";
 
-export function CalculateButton() {
+type props = { onClick: () => void }
+
+export function CalculateButton({ onClick }: props) {
 	return (
-		<Container>
+		<Container onClick={onClick}>
 			{"calcular >"}
 		</Container>
 	);

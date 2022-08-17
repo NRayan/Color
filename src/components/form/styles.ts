@@ -7,6 +7,7 @@ export const Container = styled.form`
     flex-direction: column;
     background-color: ${({ theme }) => theme.colors.background};
     border-radius: 10px;
+    width: 50rem;
     border: 1px solid ${({ theme }) => transparentize(.5, theme.colors.text)};
 `;
 
@@ -17,9 +18,4 @@ export const Header = styled.header`
 export const ContentContainer = styled.div`
     padding: 5%;
     row-gap: 3rem;
-`;
-
-export const InputsContainer = styled.div`
-    flex: 1;    
-    row-gap: 2rem;
 `;

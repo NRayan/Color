@@ -1,33 +1,70 @@
+import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
-import { CalculateButton, FormInput, WallButton } from "../";
-import { Container, ContentContainer, Header, InputsContainer } from "./styles";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { CalculateButton, WallButton, WallForm } from "../";
+import { Container, ContentContainer, Header } from "./styles";
+
+yup.setLocale({
+	mixed: {
+		default: "Número inválido",
+		required: "Campo obrigatório"
+	},
+	number: {
+		min: "deve ter no mínimo ${min}m",
+		max: "deve ter no máximo ${max}m",
+	}
+});
+
+const validations = [1, 2, 3, 4].map(num => (
+	{
+		[`height${num}`]: yup.number().required(),
+		[`width${num}`]: yup.number().required(),
+		[`doors${num}`]: yup.number().required(),
+		[`windows${num}`]: yup.number().required(),
+	}));
+
+const validationSchema = yup.object(Object.assign({}, validations[0], validations[1], validations[2], validations[3]));
+
+const formOptions = { resolver: yupResolver(validationSchema) };
 
 export function Form() {
 
-	const [selected, setSelected] = useState(1);
+	const { control, handleSubmit, formState: { errors } } = useForm(formOptions);
+
+	const [selectedWall, setSelectedWall] = useState(1);
 
 	function handleClick(wallClicked: number) {
-		setSelected(wallClicked);
+		setSelectedWall(wallClicked);
+	}
+
+	function handleValidateClick(data: any) {
+		console.log(data);
 	}
 
 	return (
 		<Container>
 			<Header>
-				<WallButton selected={selected == 1} wallNumber={1} onClick={handleClick} />
-				<WallButton selected={selected == 2} wallNumber={2} onClick={handleClick} />
-				<WallButton selected={selected == 3} wallNumber={3} onClick={handleClick} />
-				<WallButton selected={selected == 4} wallNumber={4} onClick={handleClick} />
+				<WallButton selected={selectedWall == 1} wallNumber={1} onClick={handleClick} />
+				<WallButton selected={selectedWall == 2} wallNumber={2} onClick={handleClick} />
+				<WallButton selected={selectedWall == 3} wallNumber={3} onClick={handleClick} />
+				<WallButton selected={selectedWall == 4} wallNumber={4} onClick={handleClick} />
 			</Header>
 
 			<ContentContainer>
 
-				<InputsContainer>
-					<FormInput label="metragem (m2)" />
-					<FormInput label="quatidade de portas" />
-					<FormInput label="quatidade de janelas" />
-				</InputsContainer>
+				{
+					[1, 2, 3, 4].map(wallNumber => (
+						<WallForm
+							key={wallNumber}
+							visible={selectedWall === wallNumber}
+							wallNumber={wallNumber}
+							control={control}
+							errors={errors} />
+					))
+				}
 
-				<CalculateButton />
+				<CalculateButton onClick={handleSubmit(handleValidateClick)} />
 
 			</ContentContainer>
 		</Container>
