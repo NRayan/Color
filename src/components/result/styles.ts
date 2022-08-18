@@ -1,7 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-width: 150px;
-height: 150px;
-background-color: black;
+`;
+
+export const Title = styled.h2`
+margin-bottom: 1.5rem;
+    font-size: 2rem;
+    font-weight: 600;
 `;

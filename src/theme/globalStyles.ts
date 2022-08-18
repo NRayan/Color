@@ -39,13 +39,14 @@ export const GlobalStyle = createGlobalStyle`
     flex-direction: column;
   }
 
-  body {   
+  body {
+    min-height: 100vh;
     background-color: ${({ theme }) => theme.colors.background};
     background:
     url(${blob1}) left top no-repeat,
     url(${blob2}) left bottom no-repeat,
     url(${blob3}) right bottom no-repeat;
-    background-size: 15rem;
+    background-size: 20rem,35rem, 15rem;
   }
   
   button {
