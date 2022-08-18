@@ -5,3 +5,9 @@ export const Container = styled.div<{ visible: boolean }>`
     row-gap: 2rem;
     display: ${({ visible }) => visible ? "flex" : "none"};
 `;
+
+export const ErrorLabel = styled.label`
+    color: ${({ theme }) => theme.colors.error};
+    font-weight: 500;
+    font-size: 1.3rem;
+`;

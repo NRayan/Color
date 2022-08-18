@@ -23,13 +23,13 @@ export const Label = styled.label`
 export const ErrorLabel = styled.label`
     font-size: 1.2rem;
     font-weight: 500;
-    color: red;
+    color: ${({ theme }) => theme.colors.error};
     display: flex;
 `;
 
 export const Input = styled.input<{ hasError: boolean }>`
     border-radius: 5px;
-    border: 1px solid ${({ theme, hasError }) => hasError ? "red" : transparentize(.7, theme.colors.text)};
+    border: 1px solid ${({ theme: { colors }, hasError }) => hasError ? colors.error : transparentize(.7, colors.text)};
     padding: .7rem .5rem;
     font-size: 1.4rem;
 `;

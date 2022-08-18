@@ -1,21 +1,23 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { CalculateButton, WallButton, WallForm } from "../";
-import { generateWallsValidations, yupSetLocale } from "../../utils";
+import { generateWallsValidations, setDefaultValues, yupSetLocale } from "../../utils";
 import { Container, ContentContainer, Header } from "./styles";
 
 yupSetLocale();
 
 const walls = [1, 2, 3, 4];
 // const walls = [1];
-const validationSchema = yup.object(generateWallsValidations());
+const validationSchema = yup.object(generateWallsValidations(walls));
 const formOptions = { resolver: yupResolver(validationSchema) };
 
 export function Form() {
 
-	const { control, handleSubmit, formState: { errors } } = useForm(formOptions);
+	const { control, handleSubmit, formState: { errors }, setValue } = useForm(formOptions);
+
+	useEffect(() => setDefaultValues(setValue, walls), []);
 
 	const [selectedWall, setSelectedWall] = useState(1);
 

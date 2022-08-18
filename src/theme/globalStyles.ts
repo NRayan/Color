@@ -1,4 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
+import blob1 from "../assets/blob1.svg"
+import blob2 from "../assets/blob2.svg"
+import blob3 from "../assets/blob3.svg"
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -14,24 +17,41 @@ export const GlobalStyle = createGlobalStyle`
     outline: none;
   }
 
+
   html{
     font-size: 62.5%;
   }
 
+  @media (max-width:1024px) {
+      html{
+        font-size: 50%;
+      }
+  } 
+
+  @media (max-width:768px) {
+      html{
+        font-size: 40%;
+      }
+  } 
+  
   div{
     display: flex;
     flex-direction: column;
   }
 
   body {   
-    height: 100vh;
-    width: 100vw;
     background-color: ${({ theme }) => theme.colors.background};
+    background:
+    url(${blob1}) left top no-repeat,
+    url(${blob2}) left bottom no-repeat,
+    url(${blob3}) right bottom no-repeat;
+    background-size: 15rem;
   }
-
+  
   button {
     border: none;
     background-color: transparent;
     cursor: pointer;
   }
+  
 `

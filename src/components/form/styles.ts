@@ -7,7 +7,7 @@ export const Container = styled.form`
     flex-direction: column;
     background-color: ${({ theme }) => theme.colors.background};
     border-radius: 10px;
-    width: 50rem;
+    width: 45rem;
     border: 1px solid ${({ theme }) => transparentize(.5, theme.colors.text)};
 `;
 

@@ -2,7 +2,10 @@ import { transparentize } from "polished";
 import styled from "styled-components";
 
 export const Container = styled.div`
-padding: 3% 10%;
+    padding: 3% 10%;
+    max-width: 1980px;
+    width: 100%;
+    align-self: center;
 `;
 
 export const Logo = styled.img`
@@ -29,7 +32,9 @@ export const Subtitle = styled.p`
     text-align: center;
 `;
 
-export const ContentContainer = styled.main`
+
+
+export const MainContainer = styled.main`
     display: flex;
     flex-direction: row;
     justify-content: space-between;

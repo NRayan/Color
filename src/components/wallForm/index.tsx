@@ -1,6 +1,6 @@
 import { Control } from "react-hook-form";
 import { FormInput } from "../";
-import { Container } from "./styles";
+import { Container, ErrorLabel } from "./styles";
 
 export type props =
 	{
@@ -12,12 +12,20 @@ export type props =
 
 export function WallForm({ visible, wallNumber, control, errors }: props) {
 
+	const otherError = errors[`other${wallNumber}`];
+
 	return (
 		<Container visible={visible}>
 			<FormInput label="altura" control={control} name={`height${wallNumber}`} error={errors[`height${wallNumber}`]} />
 			<FormInput label="largura" control={control} name={`width${wallNumber}`} error={errors[`width${wallNumber}`]} />
 			<FormInput label="quatidade de portas" control={control} name={`doors${wallNumber}`} error={errors[`doors${wallNumber}`]} />
 			<FormInput label="quatidade de janelas" control={control} name={`windows${wallNumber}`} error={errors[`windows${wallNumber}`]} />
+
+			{
+				otherError &&
+				<ErrorLabel>{otherError.message}</ErrorLabel>
+			}
+
 		</Container>
 	);
 }

@@ -3,7 +3,8 @@ export type themeProps = {
         background: string,
         backgroundSecondary: string,
         primary: string,
-        text: string
+        text: string,
+        error: string,
     }
 }
 
@@ -13,6 +14,7 @@ export const theme: themeProps =
 		background: "#FFF",
 		backgroundSecondary: "#F5F6F8",
 		primary: "#1ACBAA",
-		text: "#1D354F"
+		text: "#1D354F",
+		error: "#ff435d"
 	}
 };
