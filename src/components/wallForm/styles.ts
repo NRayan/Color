@@ -10,4 +10,5 @@ export const ErrorLabel = styled.label`
     color: ${({ theme }) => theme.colors.error};
     font-weight: 500;
     font-size: 1.3rem;
+    white-space: pre-wrap;
 `;

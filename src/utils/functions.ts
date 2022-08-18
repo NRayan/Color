@@ -1,0 +1,1 @@
+export const pause = (ms: number) => ({ then: (fn) => { setTimeout(fn, ms); } });

@@ -10,7 +10,7 @@ export const LabelContainer = styled.div`
     justify-content: space-between;
     align-items: flex-end;
     width: 100%;
-    column-gap: 2rem;
+    column-gap: 5rem;
 `;
 
 export const Label = styled.label`
@@ -25,6 +25,8 @@ export const ErrorLabel = styled.label`
     font-weight: 500;
     color: ${({ theme }) => theme.colors.error};
     display: flex;
+    text-align: end;
+    white-space: pre-wrap;
 `;
 
 export const Input = styled.input<{ hasError: boolean }>`
