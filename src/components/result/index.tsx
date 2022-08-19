@@ -3,8 +3,7 @@ import Lottie from "react-lottie";
 import PaintingAnimationData from "../../assets/paintingLottieAnimation.json";
 import { PaintingCanCard } from "../../components";
 import { ColorContext } from "../../contexts";
-import { CardsContainer } from "../paintingCanCard/styles";
-import { Animation, Container, Title } from "./styles";
+import { Animation, CardsContainer, Container, Title } from "./styles";
 
 const LottieAnimationOptions = {
 	loop: true,
@@ -29,9 +28,8 @@ export function Result() {
 				resultStatus === "done" ?
 					<CardsContainer>
 						{
-							neededCans.map((canInfo, index) =>
-								<PaintingCanCard key={index} cansInfo={canInfo}
-								/>)
+							neededCans.filter(x => x.quantity > 0).map((canInfo, index) =>
+								<PaintingCanCard key={index} cansInfo={canInfo} index={index} />)
 						}
 					</CardsContainer>
 					:
@@ -42,9 +40,6 @@ export function Result() {
 							speed={.5} />
 					</Animation>
 			}
-
-
-			{/* <h2>{squareMetre}</h2> */}
 		</Container>
 	);
 }

@@ -17,3 +17,9 @@ height: 10rem;
 width: 10rem;
 align-self: center;
 `;
+
+
+export const CardsContainer = styled.div`
+    row-gap: 1rem;
+    align-items: center;
+`;
