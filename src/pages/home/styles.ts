@@ -32,11 +32,10 @@ export const Subtitle = styled.p`
     text-align: center;
 `;
 
-
-
 export const MainContainer = styled.main`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
+    column-gap: 2rem;
 `;
