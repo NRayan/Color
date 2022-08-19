@@ -15,11 +15,11 @@ const LottieAnimationOptions = {
 
 export function Result() {
 
-	const { squareMetre, resultStatus } = useContext(ColorContext);
+	const { squareMetre, resultStatus, neededCans } = useContext(ColorContext);
 
 	console.log(squareMetre);
 
-	const message = resultStatus === "waiting" ? "Aguardando os dados" : resultStatus === "loading" ? "Calculando..." : "Você deverá comprar";
+	const message = resultStatus === "waiting" ? "Aguardando os dados" : resultStatus === "loading" ? "Calculando..." : "Você deverá comprar:";
 
 	return (
 		<Container>
@@ -28,17 +28,18 @@ export function Result() {
 			{
 				resultStatus === "done" ?
 					<CardsContainer>
-						<PaintingCanCard />
-						<PaintingCanCard />
-						<PaintingCanCard />
-						<PaintingCanCard />
+						{
+							neededCans.map((canInfo, index) =>
+								<PaintingCanCard key={index} cansInfo={canInfo}
+								/>)
+						}
 					</CardsContainer>
 					:
 					<Animation>
 						<Lottie options={LottieAnimationOptions}
 							height={"100%"}
 							width={"100%"}
-							speed={.5}/>
+							speed={.5} />
 					</Animation>
 			}
 

@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { CalculateButton, WallButton, WallForm } from "../";
 import { ColorContext } from "../../contexts";
-import { calculateTotalArea, generateWallsValidations, pause, setDefaultValues, yupSetLocale } from "../../utils";
+import { calculateCansDemand, calculateTotalSquareMetre, generateWallsValidations, pause, setDefaultValues, yupSetLocale } from "../../utils";
 import { Container, ContentContainer, Header } from "./styles";
 
 yupSetLocale();
@@ -16,7 +16,7 @@ const formOptions = { resolver: yupResolver(validationSchema) };
 
 export function Form() {
 
-	const { setSquareMetre, setResultStatus } = useContext(ColorContext);
+	const { setSquareMetre, setResultStatus, setNeededCans } = useContext(ColorContext);
 
 	const { control, handleSubmit, formState: { errors }, setValue } = useForm(formOptions);
 
@@ -30,8 +30,11 @@ export function Form() {
 
 	function handleCalculateButtonClick(data: object) {
 		setResultStatus("loading");
-		pause(1500).then(() => {
-			setSquareMetre(calculateTotalArea(walls, data));
+		pause(1000).then(() => {
+			const totalSquareMetre = calculateTotalSquareMetre(walls, data);
+			const neededCans = calculateCansDemand(totalSquareMetre, [18, 3.6, 2.5, 0.5]);
+			setSquareMetre(totalSquareMetre);
+			setNeededCans(neededCans);
 			setResultStatus("done");
 		});
 
