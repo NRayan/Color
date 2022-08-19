@@ -13,13 +13,15 @@
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 ![Figma](https://img.shields.io/badge/Figma-B52728?style=for-the-badge&logo=figma&logoColor=white)
 
+<br />
+
 ## Sobre o projeto
 A aplicação ajuda o usuário a calcular a quantidade de tinta necessária para pintar uma sala.
 
 ## Regras de negócio
-1 -Nenhuma parede pode ter menos de 1 metro quadrado nem mais de 50 metros quadrados, mas podem possuir alturas e larguras diferentes<br />
+1 - Nenhuma parede pode ter menos de 1 metro quadrado nem mais de 50 metros quadrados, mas podem possuir alturas e larguras diferentes<br />
 2 - O total de área das portas e janelas deve ser no máximo 50% da área de parede<br />
-3 -A altura de paredes com porta deve ser, no mínimo, 30 centímetros maior que a altura da porta<br />
+3 - A altura de paredes com porta deve ser, no mínimo, 30 centímetros maior que a altura da porta<br />
 4 - Cada janela possui as medidas: 2,00 x 1,20 mtos<br />
 5 - Cada porta possui as medidas: 0,80 x 1,90<br />
 6 - Cada litro de tinta é capaz de pintar 5 metros quadrados<br />
@@ -38,6 +40,5 @@ A aplicação ajuda o usuário a calcular a quantidade de tinta necessária para
 3. Dentro da pasta, execute `npm install` para instalar as dependencias necessárias.
 4. Execute `npm run dev`.
 
-#
 ## Protótipo 
 >https://www.figma.com/file/0GewQ06XsX779eKaLvykwU/Color?node-id=0%3A1
