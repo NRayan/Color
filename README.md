@@ -1,6 +1,10 @@
-![banner](./src/assets/banner.png)
+<p align="center">
+  <img src="./src/assets/banner.png" alt="banner"/>
+</p>
 
-![Screenshot](./src/assets/mockup.png)
+<p align="center">
+  <img src="./src/assets/mockup.png" alt="mockup"/>
+</p>
 
 <br />
 
