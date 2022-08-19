@@ -25,8 +25,8 @@ export function yupSetLocale() {
 
 export function setDefaultValues(setValue: UseFormSetValue<any>, walls: number[]) {
 	walls.forEach(wallNumber => {
-		setValue(`height${wallNumber}`, 1);
-		setValue(`width${wallNumber}`, 1);
+		setValue(`height${wallNumber}`, 0);
+		setValue(`width${wallNumber}`, 0);
 		setValue(`doors${wallNumber}`, 0);
 		setValue(`windows${wallNumber}`, 0);
 	});

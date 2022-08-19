@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
+import "jest-canvas-mock";
 import { Home } from "../pages";
 import { ThemeWrapper } from "../utils";
-import "jest-canvas-mock";
 
 it("Should render page correctly", () => {
 	render(
