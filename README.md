@@ -1,5 +1,4 @@
 ![banner](./src/assets/banner.png)
-## Color
 
 ![Screenshot](./src/assets/mockup.png)
 
