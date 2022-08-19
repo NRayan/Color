@@ -1,8 +1,7 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const Container = styled.div`
 width: 35rem;
-/* background-color: red; */
 align-items: center;
 `;
 
@@ -17,7 +16,6 @@ height: 10rem;
 width: 10rem;
 align-self: center;
 `;
-
 
 export const CardsContainer = styled.div`
     row-gap: 1rem;

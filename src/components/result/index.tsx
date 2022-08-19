@@ -1,8 +1,9 @@
 import { useContext } from "react";
 import Lottie from "react-lottie";
 import PaintingAnimationData from "../../assets/paintingLottieAnimation.json";
-import { PaintingCanCard } from "../../components";
+import { PaintingCanCard, ResultDetails } from "../../components";
 import { ColorContext } from "../../contexts";
+import { cansOfPaint } from "../../types";
 import { Animation, CardsContainer, Container, Title } from "./styles";
 
 const LottieAnimationOptions = {
@@ -20,17 +21,19 @@ export function Result() {
 
 	const message = resultStatus === "waiting" ? "Aguardando os dados" : resultStatus === "loading" ? "Calculando..." : "Você deverá comprar:";
 
+	const cans: cansOfPaint[] | null = resultStatus === "done" ? neededCans.filter(can => can.quantity > 0) : null;
+
 	return (
 		<Container>
 			<Title>{message}</Title>
 
 			{
-				resultStatus === "done" ?
+				cans ?
 					<CardsContainer>
 						{
-							neededCans.filter(x => x.quantity > 0).map((canInfo, index) =>
-								<PaintingCanCard key={index} cansInfo={canInfo} index={index} />)
+							cans.map((canInfo, index) => <PaintingCanCard key={index} cansInfo={canInfo} index={index} />)
 						}
+
 					</CardsContainer>
 					:
 					<Animation>
@@ -40,6 +43,8 @@ export function Result() {
 							speed={.5} />
 					</Animation>
 			}
+
+			{cans && <ResultDetails index={cans.length} />}
 		</Container>
 	);
 }
