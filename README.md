@@ -1,9 +1,5 @@
-<div style="display:flex;align-items:center;column-gap:10px">
-  <img src="./src/assets/logo.svg" height="34px" />
-  <h2 style="font-weight:bold">COLOR</h2>
-</div>
-
-<br />
+![banner](./src/assets/banner.png)
+## Color
 
 ![Screenshot](./src/assets/mockup.png)
 
@@ -16,7 +12,7 @@
 
 ## Sobre o projeto
 A aplicação ajuda o usuário a calcular a quantidade de tinta necessária para pintar uma sala.
-# 
+
 ## Regras de negócio
 1 -Nenhuma parede pode ter menos de 1 metro quadrado nem mais de 50 metros quadrados, mas podem possuir alturas e larguras diferentes<br />
 2 - O total de área das portas e janelas deve ser no máximo 50% da área de parede<br />
@@ -31,7 +27,7 @@ A aplicação ajuda o usuário a calcular a quantidade de tinta necessária para
 * 3,6 L
 * 18 L
 
-# 
+
 ## Como rodar
 
 1. instale o [npm](https://nodejs.org/en/download/)
